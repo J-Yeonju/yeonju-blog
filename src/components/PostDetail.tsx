@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function PostDetail() {
     return (
         <>
@@ -13,7 +15,9 @@ export default function PostDetail() {
                     </div>
                     <div className="post__utils-box">
                         <div className="post__delete">삭제</div>
-                        <div className="post__edit">수정</div>
+                        <div className="post__edit">
+                            <Link to={`/posts/edit/1`}>수정</Link>
+                        </div>
                     </div>
                     <div className="post__text">
                         Happiness in this world, when it comes, comes incidentally. Make it the object of pursuit, and it leads us a wild-goose chase, and is never attained.
