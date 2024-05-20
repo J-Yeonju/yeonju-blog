@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "pages/home";
 import PostList from "pages/posts";
@@ -10,8 +8,12 @@ import ProfilePage from "pages/profile";
 import LoginPage from "pages/login";
 import SignupPage from "pages/signup";
 
-export default function Router() {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+interface RouterProps {
+  isAuthenticated: boolean;
+}
+
+export default function Router( {isAuthenticated}: RouterProps ) {
+  
   return (
     <>
       <Routes>
