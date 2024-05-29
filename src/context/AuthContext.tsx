@@ -1,7 +1,6 @@
-import { Children, ReactNode, createContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import { User, getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "firebaseApp";
-import { ChildProcess } from "child_process";
 
 interface AuthProps {
   children: ReactNode;
@@ -31,3 +30,5 @@ export const AuthContextProvider = ({ children }: AuthProps) => {
     </AuthContext.Provider>
   );
 };
+
+export default AuthContext;
