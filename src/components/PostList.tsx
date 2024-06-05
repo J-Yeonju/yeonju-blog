@@ -77,7 +77,7 @@ export default function PostList({
     const datas = await getDocs(postsQuery);
     datas?.forEach((doc) => {
       const dataObj = { ...doc.data(), id: doc.id };
-      setPosts((prev) => [...prev, dataObj  as PostProps]);
+      setPosts((prev) => [...prev, dataObj as PostProps]);
     });
   };
 
