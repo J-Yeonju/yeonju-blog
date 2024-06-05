@@ -469,7 +469,7 @@ input:checked + .carousel__slide-container .nav label {
 
 .form__error {
   color: red;
-}
+} 
 
 .form select {
   border: 1px solid lightgray;
