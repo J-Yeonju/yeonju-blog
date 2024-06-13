@@ -393,6 +393,7 @@ input:checked + .carousel__slide-container .nav label {
 
 /* form */
 .form {
+  min-height: 90vh;
   margin: 0 auto;
   max-width: 680px;
   padding: 20px;
