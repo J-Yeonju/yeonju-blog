@@ -10,13 +10,17 @@ export default function LoginForm() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
-
+  const [formData, setFormData] = useState({
+    email: 'test@test.com',
+    password: 'testtest',
+  });
+  
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       const auth = getAuth(app);
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, formData.email, formData.password);
 
       toast.success("로그인에 성공했습니다.");
       navigate("/");
@@ -27,9 +31,12 @@ export default function LoginForm() {
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const {
-      target: { name, value },
-    } = e;
+    const { name, value } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
 
     if (name === "email") {
       setEmail(value);
@@ -66,7 +73,7 @@ export default function LoginForm() {
           id="email"
           required
           onChange={onChange}
-          value={email}
+          value={formData.email}
         />
       </div>
       <div className="form__block">
@@ -77,7 +84,7 @@ export default function LoginForm() {
           id="password"
           required
           onChange={onChange}
-          value={password}
+          value={formData.password}
         />
       </div>
       {error && error?.length > 0 && (
